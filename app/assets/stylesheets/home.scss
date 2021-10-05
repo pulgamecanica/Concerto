@@ -2,6 +2,8 @@ $main_color: #E9E9E9;
 $secondary_color: #C1C1C3;
 $extra_color1: #010C13;
 $text_color: #373746;
+$slider-speed: 5s;
+$slider-heigth: 300px;
 	@mixin white-gradient {
 		background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
 	}
@@ -72,9 +74,10 @@ html {height: 100% !important;
 		}
 		.content-center {
 			justify-content: center;
-		  align-items: center;
-		  display: flex;
-		  height: 100%;
+		 	align-items: center;
+		 	display: flex;
+		 	height: 100%;
+		 	padding: 1rem;
 		}
 		.navbar {
 			display: inline;
@@ -125,45 +128,69 @@ html {height: 100% !important;
 			animation: jump 1s ease-in-out 0s infinite;
 			position: relative;
 		}
+		.duo-grid {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flow-direction: column;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-around;
+			gap: 10px;
+			position: relative;
+			.in-grid {
+				height: 100%;
+				p {
+					text-align: center;
+					margin: auto;
+					max-width: 400px;
+					font-size: 35%;
+					padding: 2em;
+				}
+				.grid-element1 {
+					vertical-align: top;
+				}
+			}
+		}
 		.slider {
-			background: white;
+			background: transparent;
 			box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-			height: 400px;
+			height: $slider-heigth;
 			margin: auto;
 			overflow:hidden;
 			position: relative;
-			width: 400px;
-			
+			width: 600px;
 			&::before,
 			&::after {
 				@include white-gradient;
 				content: "";
-				height: 100px;
+				height: $slider-heigth;
+				opacity: 50%;
 				position: absolute;
-				width: 200px;
+				width: 100px;
 				z-index: 2;
 			}
-			
 			&::after {
 				right: 0;
 				top: 0;
 				transform: rotateZ(180deg);
 			}
-
 			&::before {
 				left: 0;
 				top: 0;
 			}
-			
 			.slide-track {
-				animation: scroll 30s linear infinite;
+				animation: scroll $slider-speed linear infinite;
 				display: flex;
-				width: calc(300px * 3);
+				width: calc(350px * 3);
 			}
-			
 			.slide {
-				height: 400px;
+				vertical-align: middle;
+				height: $slider-heigth;
 				width: 450px;
+				img {
+					height: $slider-heigth;
+				}
 			}
 		}
 		@keyframes jump {
@@ -172,7 +199,7 @@ html {height: 100% !important;
 		}
 		@keyframes scroll {
 			0% {transform: translateX(0);}
-			100% {transform: translateX(calc(-250px * 3));}
+			100% {transform: translateX(calc(-200px * 3));}
 		}
 		@media only screen and (min-width: 701px){
 			.section-side-content {
@@ -189,7 +216,6 @@ html {height: 100% !important;
 				background-repeat: repeat;
 				background-size: 100%;
 			}
-			// #home-content {border-left: 2px solid $extra_color1;}
 		}
 		@media only screen and (max-width: 700px){
 			#open-hidden-navbar, #close-hidden-navbar {
@@ -203,13 +229,12 @@ html {height: 100% !important;
 			}
 
 			#home-section #home-content {
-				padding: 2rem 2rem 2rem 0;
+				padding: 2rem 0rem 0 0rem;
 				background-image: asset_url("home.jpeg");
 				background-position: center;
 				background-repeat: repeat;
 				background-size: 125%;
 			}
-			// #home-content {border: 2px solid $extra_color1;}
 		}
 	}
 }
