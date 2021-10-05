@@ -2,7 +2,7 @@ $main_color: #E9E9E9;
 $secondary_color: #C1C1C3;
 $extra_color1: #010C13;
 $text_color: #373746;
-$slider-speed: 5s;
+$slider-speed: 40s;
 $slider-heigth: 300px;
 	@mixin white-gradient {
 		background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
