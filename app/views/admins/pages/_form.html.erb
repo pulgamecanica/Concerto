@@ -1,0 +1,41 @@
+<%= form_with(model: page, local: false) do |form| %>
+
+  <div class="field">
+    <%= form.label :title_es %>
+    <%= form.text_field :title_es, class: "form-control" %>
+  </div>
+
+    <div class="field">
+    <%= form.label :title_en %>
+    <%= form.text_field :title_en, class: "form-control" %>
+  </div>
+
+    <div class="field">
+    <%= form.label :title_fr %>
+    <%= form.text_field :title_fr, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description_es %>
+    <%= form.text_area :description_es, class: "form-control" %>
+  </div>
+
+   <div class="field">
+    <%= form.label :description_en %>
+    <%= form.text_area :description_en, class: "form-control" %>
+  </div>
+
+ <div class="field">
+    <%= form.label :description_fr %>
+    <%= form.text_area :description_fr, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :display %>
+    <%= form.number_field :display, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'form-control btn btn-primary mt-2 mb-2'%>
+  </div>
+<% end %>

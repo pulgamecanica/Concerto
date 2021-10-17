@@ -55,5 +55,8 @@ end
 #Devise Gem
 gem 'devise' 
 
+#Traco for languaje translation
+gem 'traco'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

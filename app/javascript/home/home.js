@@ -20,10 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	},false);
 });
 function hiddenNav(hidden_nav, home, background) {
-	document.querySelectorAll('section')[0].style.backgroundColor = background;
+	document.querySelectorAll('section').forEach(elem => elem.style.display = home);
 	document.querySelector('#open-hidden-navbar').style.display = home;
 	document.querySelector('#close-hidden-navbar').style.display = hidden_nav;
-	document.querySelector('#home-section').style.display = home;
-	// document.querySelectorAll('section')[0].style.backgroundImage = home;
 	document.querySelector('#hidden-navbar').style.display = hidden_nav;
+	document.querySelector('#hidden-navbar').style.backgroundColor = "rgba(0, 0, 0, 0.65)";
 }

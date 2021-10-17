@@ -1,0 +1,48 @@
+<nav id="sidebar">
+    <div class="sidebar-header text-center">
+        <h1> ADMIN </h1>
+        <h5>Concerto</h5>
+    </div>
+    <div class="list-unstyled list-group">
+        <a href="#pages_index" class="btn btn-light list-group-item m-1" data-toggle="collapse"><i class="fas fa-bars"></i> <%= t(:pages) %></a>
+        <div class="collapse list-unstyled list-group" id="pages_index">
+            <% @pages.where(display: 1).order(:title_en).each do |page|%>
+                <a href="<%= edit_page_path(page) %>" class="btn btn-light list-group-item m-2"><%= page.title_en %></a>
+            <% end %>
+        </div>
+        <br>
+        <h5 class="sidebar-header text-center" > <%= t(:tools) %> </h5>
+        <a href="<%= new_page_path %>" class="btn btn-light list-group-item m-1"><i class="fas fa-plus-square"></i> <%= t(:new_page) %> </a>
+        <a href="#langs" class="btn btn-light list-group-item m-1" data-toggle="collapse"><i class="fas fa-language"></i> <%= t(:language) %> </a>
+        <div class="collapse list-unstyled list-group" id="langs">
+            <%= link_to :en.upcase, url_for(locale: :en), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
+            <%= link_to :es.upcase, url_for(locale: :es), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
+            <%= link_to :fr.upcase, url_for(locale: :fr), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
+        </div>
+
+    </div>
+
+    <div class="settings text-center">
+        <h4 class="text-break" style="color:black;"><%=@current_admin.email%></h4>
+        <%= link_to "Sign Out", destroy_admin_session_path, method: :delete, class: "btn btn-danger"%>
+        <a href=" <%= root_path %>" class="btn btn-info"><i class="fas fa-home"></i></a>
+    </div>
+</nav>
+
+<nav id="mobile-sidebar">
+    <h4 class="text-break text-center" style="color:black;"><%=@current_admin.email%></h4>
+    <div class="d-flex justify-content-between m-3">
+        <%= link_to "Sign Out", destroy_admin_session_path, method: :delete, class: "btn btn-danger"%>
+        <a href=" <%= root_path %>" class="btn btn-info"><i class="fas fa-home"></i></a>
+    </div>
+    <a href="#homeSubmenu2" class="btn btn-light list-group-item m-1" data-toggle="collapse"><i class="fas fa-bars"></i> Pages</a>
+    <div class="collapse list-unstyled list-group" id="homeSubmenu2">
+      <% @pages.where(display: 1).order(:title_en).each do |page|%>
+            <a href="<%= page_path(page) %>" class="btn btn-light list-group-item m-2"><%= page.title_es %></a>
+        <% end %>
+    </div>
+    <br>
+    <h5 class="sidebar-header text-center" > TOOLS </h5>
+    <a href="<%= new_page_path %>" class="btn btn-light list-group-item m-1"><i class="fas fa-plus-square"></i> Pages</a>
+    
+</nav>
