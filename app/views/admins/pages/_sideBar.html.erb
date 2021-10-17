@@ -38,11 +38,17 @@
     <a href="#homeSubmenu2" class="btn btn-light list-group-item m-1" data-toggle="collapse"><i class="fas fa-bars"></i> Pages</a>
     <div class="collapse list-unstyled list-group" id="homeSubmenu2">
       <% @pages.where(display: 1).order(:title_en).each do |page|%>
-            <a href="<%= page_path(page) %>" class="btn btn-light list-group-item m-2"><%= page.title_es %></a>
+            <a href="<%= edit_page_path(page) %>" class="btn btn-light list-group-item m-2"><%= page.title_en %></a>
         <% end %>
     </div>
     <br>
-    <h5 class="sidebar-header text-center" > TOOLS </h5>
-    <a href="<%= new_page_path %>" class="btn btn-light list-group-item m-1"><i class="fas fa-plus-square"></i> Pages</a>
+    <h5 class="sidebar-header text-center" > <%= t(:tools) %> </h5>
+    <a href="<%= new_page_path %>" class="btn btn-light list-group-item m-1"><i class="fas fa-plus-square"></i> <%= t(:new_page) %> </a>
+    <a href="#langs" class="btn btn-light list-group-item m-1" data-toggle="collapse"><i class="fas fa-language"></i> <%= t(:language) %> </a>
+    <div class="collapse list-unstyled list-group" id="langs">
+        <%= link_to :en.upcase, url_for(locale: :en), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
+        <%= link_to :es.upcase, url_for(locale: :es), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
+        <%= link_to :fr.upcase, url_for(locale: :fr), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
+    </div>
     
 </nav>
