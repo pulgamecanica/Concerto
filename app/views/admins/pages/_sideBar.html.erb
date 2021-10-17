@@ -44,8 +44,8 @@
     <br>
     <h5 class="sidebar-header text-center" > <%= t(:tools) %> </h5>
     <a href="<%= new_page_path %>" class="btn btn-light list-group-item m-1"><i class="fas fa-plus-square"></i> <%= t(:new_page) %> </a>
-    <a href="#langs" class="btn btn-light list-group-item m-1" data-toggle="collapse"><i class="fas fa-language"></i> <%= t(:language) %> </a>
-    <div class="collapse list-unstyled list-group" id="langs">
+    <a href="#langs_mobile" class="btn btn-light list-group-item m-1" data-toggle="collapse"><i class="fas fa-language"></i> <%= t(:language) %> </a>
+    <div class="collapse list-unstyled list-group" id="langs_mobile">
         <%= link_to :en.upcase, url_for(locale: :en), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
         <%= link_to :es.upcase, url_for(locale: :es), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
         <%= link_to :fr.upcase, url_for(locale: :fr), data: { turbolinks: false }, class: "btn btn-light list-group-item m-2" %>
